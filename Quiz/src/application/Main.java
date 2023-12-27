@@ -1,23 +1,39 @@
 package application;
 
 import entities.Questao;
+import entities.Quiz;
+import entities.Usuario;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        Questao q1 = new Questao("Que país é esse?", "Brasil");
-
         Scanner sc = new Scanner(System.in);
-        System.out.println(q1.getPergunta());
-        System.out.print("Resposta: ");
-        String resposta = sc.nextLine();
+        System.out.print("Usuário: ");
+        String usuario = sc.nextLine();
 
-        if (q1.verificaResposta(resposta))
-            System.out.println("Certa resposta!");
-        else
-            System.out.println("Errado :( ");
+        Quiz quiz = new Quiz(new Usuario(usuario));
 
+        quiz.addQuestao(new Questao("2 + 2 ?","4"));
+        quiz.addQuestao(new Questao("2 - 2 ?","0"));
+        quiz.addQuestao(new Questao("3 * 3 ?","9"));
+        quiz.addQuestao(new Questao("Que pais é esse? ?","Brasil"));
+        quiz.addQuestao(new Questao("4 - 2 ?","2"));
+
+        for (Questao questao: quiz.getQuestoes()){
+            System.out.print(questao.getPergunta()+"  ");
+            String resposta = sc.nextLine();
+            if (questao.verificaResposta(resposta))
+                quiz.getUsuario().addAcerto();
+            else
+                quiz.getUsuario().addErro();
+            System.out.println();
+        }
+
+        System.out.println("\n" + quiz.getUsuario().toString());
+
+
+        sc.close();
     }
 }
