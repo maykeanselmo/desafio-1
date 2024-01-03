@@ -3,9 +3,9 @@ package entities;
 import java.util.Objects;
 
 public class Usuario {
-    String usuario;
-    Integer acertos = 0;
-    Integer erros = 0;
+    private String usuario;
+    private Integer acertos = 0;
+    private Integer erros = 0;
 
     public Integer getAcertos() {
         return acertos;
@@ -15,7 +15,10 @@ public class Usuario {
         return erros;
     }
 
-    public Usuario(String usuario) {
+
+    public Usuario(String usuario) throws InvalidUserException {
+        if(usuario == null || usuario.isEmpty())
+            throw new InvalidUserException();
         this.usuario = usuario;
     }
 
@@ -23,7 +26,9 @@ public class Usuario {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(String usuario) throws IllegalArgumentException {
+        if(usuario == null || usuario.isEmpty())
+            throw new IllegalArgumentException("Usuário inválido");
         this.usuario = usuario;
     }
 

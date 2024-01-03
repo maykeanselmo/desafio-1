@@ -7,7 +7,7 @@ public class Questao {
     private String resposta;
 
     public Questao(String pergunta, String resposta) throws IllegalArgumentException{
-        if (pergunta == null || resposta == null) {
+        if (pergunta == null || pergunta.isEmpty() || resposta == null || resposta.isEmpty()) {
             throw new IllegalArgumentException("Pergunta e/ou resposta não podem ser nulas.");
         }
         this.pergunta = pergunta;
@@ -33,7 +33,8 @@ public class Questao {
     public Boolean verificaResposta(String resposta)throws IllegalArgumentException{
         if(resposta == null || resposta.isEmpty())
             throw new IllegalArgumentException("Resposta não pode ser nula.");
-        return this.resposta.equalsIgnoreCase(resposta);
+        String respostaSemEspaco = resposta.replaceAll("\\s", ""); // para conciderar respostas com espaço
+        return this.resposta.replaceAll("\\s", "").equalsIgnoreCase(respostaSemEspaco);
     }
 
     @Override
@@ -47,5 +48,13 @@ public class Questao {
     @Override
     public int hashCode() {
         return Objects.hash(pergunta);
+    }
+
+    @Override
+    public String toString() {
+        return "Questao{" +
+                "pergunta='" + pergunta + '\'' +
+                ", resposta='" + resposta + '\'' +
+                '}';
     }
 }
