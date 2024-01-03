@@ -1,11 +1,10 @@
 package application;
 
-import entities.InvalidUserException;
+import exceptions.InvalidUserException;
 import entities.Questao;
 import entities.Quiz;
 import entities.Usuario;
 
-import java.util.IllformedLocaleException;
 import java.util.Scanner;
 
 public class Main {

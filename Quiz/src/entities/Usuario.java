@@ -1,5 +1,7 @@
 package entities;
 
+import exceptions.InvalidUserException;
+
 import java.util.Objects;
 
 public class Usuario {

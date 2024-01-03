@@ -1,4 +1,4 @@
-package entities;
+package exceptions;
 
 import java.io.Serial;
 
