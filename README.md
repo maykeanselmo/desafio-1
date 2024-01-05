@@ -83,7 +83,7 @@ Este sistema em Java tem como objetivo validar se um usuário e senha existem no
 
 ---
 
-## Bónus
+## Bônus
 
 ### Descrição do Projeto
 Este programa em Java tem como objetivo validar se um funcionário tem direito a bonificação ou a um desconto. Baseado em critérios específicos, o funcionário receberá uma determinada quantidade de bonificação ou um desconto em seu salário.
