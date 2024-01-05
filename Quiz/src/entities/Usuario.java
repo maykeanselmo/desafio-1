@@ -5,9 +5,9 @@ import exception.InvalidUserException;
 import java.util.Objects;
 
 public class Usuario {
-    String usuario;
-    Integer acertos = 0;
-    Integer erros = 0;
+    private String usuario;
+    private Integer acertos = 0;
+   private  Integer erros = 0;
 
     public Integer getAcertos() {
         return acertos;

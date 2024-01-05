@@ -10,8 +10,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InvalidUserException {
 
-        Scanner sc = new Scanner(System.in);
-        try {
+        try (Scanner sc = new Scanner(System.in)) {
             System.out.print("Usuário: ");
             String usuario = sc.nextLine();
 
@@ -62,21 +61,15 @@ public class Main {
                     }
                 }
             } while (!sair);
-        }
-        catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println("Pergunta e/ou resposta não podem ser nulas.");
             System.out.println("Saindo...");
-        }
-        catch (InvalidUserException e){
+        } catch (InvalidUserException e) {
             System.out.println(e.getMessage());
             System.out.println("Saindo ...");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Erro desconhecido");
             e.printStackTrace();
-        }
-        finally {
-            sc.close();
         }
     }
 
