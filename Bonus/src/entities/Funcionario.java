@@ -3,9 +3,9 @@ package entities;
 import java.util.Objects;
 
 public class Funcionario {
-    String nome;
+    private String nome;
 
-    Double salario;
+    private Double salario;
 
 
     public Funcionario(String nome, Double salario) throws IllegalArgumentException {
